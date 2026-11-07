@@ -1,0 +1,22 @@
+feature,mean_abs_shap,label
+log_amount,0.325154457980587,Claim amount (log)
+submit_month,0.137750318443606,Submission month
+org_prior_n,0.12423864290715779,Org unit: claims closed in prior 180 days (log)
+bud_prior_n,0.052329527692536695,Budget: claims closed in prior 180 days (log)
+submit_dom,0.03168332669401729,Submission day of month
+org_prior_rate,0.02834774496064224,"Org unit: problem rate, prior 180 days"
+amount_zero,0.02473262366032023,Zero amount
+submit_weekday,0.02401726598340275,Submission weekday
+workload_7d,0.01980682819215467,Claims submitted in prior 7 days (same log)
+bud_prior_rate,0.012620685755859538,"Budget: problem rate, prior 180 days"
+id_days_trip_end_to_submit,0.009910565034251419,Days from trip end to submission
+submit_hour,0.0042102940814003655,Submission hour
+id_amount_to_permit_budget,0.0038983418748349727,Amount / permit requested budget
+id_trip_days,0.003786522157086302,Trip length (days)
+id_permit_after_trip_start,0.000442283236045355,Permit approved after trip start
+is_DD,0.0,Domestic declaration
+is_RFP,0.0,Request for payment
+is_ID,0.0,International declaration
+id_permit_approved,0.0,Permit final-approved before submission
+id_permit_rejections,0.0,Permit rejections before submission
+rfp_cost_type,0.0,Cost type

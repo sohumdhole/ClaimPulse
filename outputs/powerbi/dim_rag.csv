@@ -1,0 +1,5 @@
+rag,rag_order,rag_hex
+RED,1,#d03b3b
+AMBER,2,#fab219
+GREEN,3,#0ca30c
+NOT SCORED,4,#9b9a95

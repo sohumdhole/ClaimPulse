@@ -1,0 +1,2271 @@
+{
+  "metrics": {
+    "ALL_claims": {
+      "value": 23554,
+      "display": "23,554",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_conform_rate": {
+      "value": 0.6604398403668167,
+      "display": "66.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "ALL_first_time_right_rate": {
+      "value": 0.8320879680733634,
+      "display": "83.2%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_mean_cycle_days": {
+      "value": 12.69592480790853,
+      "display": "12.7",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_median_approval_days": {
+      "value": 2.0424594907407405,
+      "display": "2.0",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_median_cycle_days": {
+      "value": 8.84130787037037,
+      "display": "8.8",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_median_payment_days": {
+      "value": 5.362951388888889,
+      "display": "5.4",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_org_rejection_rate": {
+      "value": 0.16744501995414793,
+      "display": "16.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_p90_cycle_days": {
+      "value": 23.01380092592593,
+      "display": "23.0",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_paid_rate": {
+      "value": 0.956822620361722,
+      "display": "95.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_rejected_closed_rate": {
+      "value": 0.04245563386261357,
+      "display": "4.2%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_resubmission_rate": {
+      "value": 0.12885284877303219,
+      "display": "12.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ALL_sla_breach_rate": {
+      "value": 0.25571282779429383,
+      "display": "25.6%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_2017_claims": {
+      "value": 2205,
+      "display": "2,205",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "DD_2017_median_cycle_days": {
+      "value": 7.097361111111111,
+      "display": "7.1",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "DD_2017_sla_breach_rate": {
+      "value": 0.1658878504672897,
+      "display": "16.6%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "DD_2018_claims": {
+      "value": 8160,
+      "display": "8,160",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "DD_2018_median_cycle_days": {
+      "value": 8.046782407407408,
+      "display": "8.0",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "DD_2018_sla_breach_rate": {
+      "value": 0.20992028343666963,
+      "display": "21.0%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "DD_claims": {
+      "value": 10365,
+      "display": "10,365",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_conform_rate": {
+      "value": 0.6841292812349252,
+      "display": "68.4%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "DD_discovered_fitness": {
+      "value": 0.9683536404624097,
+      "display": "0.968",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "inductive miner, token replay"
+    },
+    "DD_discovered_precision": {
+      "value": 0.33563320577738265,
+      "display": "0.336",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "inductive miner, token replay"
+    },
+    "DD_first_time_right_rate": {
+      "value": 0.8744814278822962,
+      "display": "87.4%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_mean_alignment_fitness": {
+      "value": 0.9260503759924585,
+      "display": "0.926",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "DD_mean_cycle_days": {
+      "value": 11.61751691799343,
+      "display": "11.6",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_median_approval_days": {
+      "value": 1.5570833333333334,
+      "display": "1.6",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_median_cycle_days": {
+      "value": 7.41130787037037,
+      "display": "7.4",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_median_final_to_request_days": {
+      "value": 1.142835648148148,
+      "display": "1.1",
+      "kind": "d1",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "DD_median_payment_days": {
+      "value": 5.31494212962963,
+      "display": "5.3",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_median_request_to_paid_days": {
+      "value": 3.2404861111111116,
+      "display": "3.2",
+      "kind": "d1",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "DD_org_rejection_rate": {
+      "value": 0.1255185721177038,
+      "display": "12.6%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_p90_cycle_days": {
+      "value": 20.153358796296295,
+      "display": "20.2",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_paid_rate": {
+      "value": 0.9689339122045345,
+      "display": "96.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_r1": {
+      "value": 1,
+      "display": "1",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r1_rate": {
+      "value": 9.64785335262904e-05,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r2": {
+      "value": 1463,
+      "display": "1,463",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r2_rate": {
+      "value": 0.14114809454896285,
+      "display": "14.1%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r2b": {
+      "value": 659,
+      "display": "659",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r2b_rate": {
+      "value": 0.06357935359382537,
+      "display": "6.4%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r3": {
+      "value": 3,
+      "display": "3",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r3_rate": {
+      "value": 0.0002894356005788712,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r4": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r4_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r5": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r5_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r6": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r6_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r7": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r7_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r8": {
+      "value": 1019,
+      "display": "1,019",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_r8_rate": {
+      "value": 0.09831162566328992,
+      "display": "9.8%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "DD_rejected_closed_rate": {
+      "value": 0.03106608779546551,
+      "display": "3.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_resubmission_rate": {
+      "value": 0.09831162566328992,
+      "display": "9.8%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_singleton_variants": {
+      "value": 45,
+      "display": "45",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "DD_sla_breach_rate": {
+      "value": 0.20053768794185003,
+      "display": "20.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "DD_top1_variant": {
+      "value": "SUBMITTED by EMPLOYEE > APPROVED by ADMINISTRATION > FINAL_APPROVED by SUPERVISOR > Request Payment > Payment Handled",
+      "display": "SUBMITTED by EMPLOYEE > APPROVED by ADMINISTRATION > FINAL_APPROVED by SUPERVISOR > Request Payment > Payment Handled",
+      "kind": "auto",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "DD_top1_variant_share": {
+      "value": 0.4455378678244091,
+      "display": "44.6%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "DD_top5_variant_share": {
+      "value": 0.9071876507477087,
+      "display": "90.7%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "DD_variants": {
+      "value": 97,
+      "display": "97",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "DD_variants_for_90pct": {
+      "value": 5,
+      "display": "5",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "ID_2017_claims": {
+      "value": 1326,
+      "display": "1,326",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "ID_2017_median_cycle_days": {
+      "value": 8.305798611111111,
+      "display": "8.3",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "ID_2017_sla_breach_rate": {
+      "value": 0.25674633770239014,
+      "display": "25.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "ID_2018_claims": {
+      "value": 5049,
+      "display": "5,049",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "ID_2018_median_cycle_days": {
+      "value": 10.717621527777778,
+      "display": "10.7",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "ID_2018_sla_breach_rate": {
+      "value": 0.36646216768916157,
+      "display": "36.6%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "ID_claims": {
+      "value": 6375,
+      "display": "6,375",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_conform_rate": {
+      "value": 0.5753725490196079,
+      "display": "57.5%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "ID_discovered_fitness": {
+      "value": 0.9719930722251842,
+      "display": "0.972",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "inductive miner, token replay"
+    },
+    "ID_discovered_precision": {
+      "value": 0.42931754874651806,
+      "display": "0.429",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "inductive miner, token replay"
+    },
+    "ID_first_time_right_rate": {
+      "value": 0.7526274509803922,
+      "display": "75.3%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_mean_alignment_fitness": {
+      "value": 0.893295716372799,
+      "display": "0.893",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "ID_mean_cycle_days": {
+      "value": 14.60823328596696,
+      "display": "14.6",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_median_approval_days": {
+      "value": 3.5515682870370373,
+      "display": "3.6",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_median_cycle_days": {
+      "value": 10.245300925925926,
+      "display": "10.2",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_median_final_to_request_days": {
+      "value": 1.1911689814814814,
+      "display": "1.2",
+      "kind": "d1",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "ID_median_payment_days": {
+      "value": 5.3602083333333335,
+      "display": "5.4",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_median_request_to_paid_days": {
+      "value": 3.21865162037037,
+      "display": "3.2",
+      "kind": "d1",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "ID_org_rejection_rate": {
+      "value": 0.2472156862745098,
+      "display": "24.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_p90_cycle_days": {
+      "value": 27.268893518518524,
+      "display": "27.3",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_paid_rate": {
+      "value": 0.9705098039215686,
+      "display": "97.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_r1": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r1_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r2": {
+      "value": 745,
+      "display": "745",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r2_rate": {
+      "value": 0.11686274509803922,
+      "display": "11.7%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r2b": {
+      "value": 544,
+      "display": "544",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r2b_rate": {
+      "value": 0.08533333333333333,
+      "display": "8.5%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r3": {
+      "value": 1,
+      "display": "1",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r3_rate": {
+      "value": 0.00015686274509803922,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r4": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r4_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r5": {
+      "value": 438,
+      "display": "438",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r5_rate": {
+      "value": 0.06870588235294117,
+      "display": "6.9%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r6": {
+      "value": 1115,
+      "display": "1,115",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r6_rate": {
+      "value": 0.17490196078431372,
+      "display": "17.5%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r7": {
+      "value": 321,
+      "display": "321",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r7_rate": {
+      "value": 0.050352941176470586,
+      "display": "5.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r8": {
+      "value": 1405,
+      "display": "1,405",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_r8_rate": {
+      "value": 0.2203921568627451,
+      "display": "22.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "ID_rejected_closed_rate": {
+      "value": 0.029176470588235293,
+      "display": "2.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_resubmission_rate": {
+      "value": 0.2203921568627451,
+      "display": "22.0%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_singleton_variants": {
+      "value": 54,
+      "display": "54",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "ID_sla_breach_rate": {
+      "value": 0.34346209794730886,
+      "display": "34.3%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "ID_top1_variant_share": {
+      "value": 0.3625098039215686,
+      "display": "36.3%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "ID_top5_variant_share": {
+      "value": 0.8062745098039216,
+      "display": "80.6%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "ID_variants": {
+      "value": 115,
+      "display": "115",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "ID_variants_for_90pct": {
+      "value": 9,
+      "display": "9",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "RFP_2017_claims": {
+      "value": 1095,
+      "display": "1,095",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "RFP_2017_median_cycle_days": {
+      "value": 7.0532870370370375,
+      "display": "7.1",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "RFP_2017_sla_breach_rate": {
+      "value": 0.1693227091633466,
+      "display": "16.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "RFP_2018_claims": {
+      "value": 5719,
+      "display": "5,719",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "RFP_2018_median_cycle_days": {
+      "value": 9.246446759259259,
+      "display": "9.2",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "RFP_2018_sla_breach_rate": {
+      "value": 0.2741844239109938,
+      "display": "27.4%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_year.csv"
+    },
+    "RFP_claims": {
+      "value": 6814,
+      "display": "6,814",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_conform_rate": {
+      "value": 0.703991781626064,
+      "display": "70.4%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "RFP_discovered_fitness": {
+      "value": 0.9729633738008292,
+      "display": "0.973",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "inductive miner, token replay"
+    },
+    "RFP_discovered_precision": {
+      "value": 0.3870638826085029,
+      "display": "0.387",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "inductive miner, token replay"
+    },
+    "RFP_first_time_right_rate": {
+      "value": 0.8419430584091576,
+      "display": "84.2%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_mean_alignment_fitness": {
+      "value": 0.9044379151967415,
+      "display": "0.904",
+      "kind": "d3",
+      "step": "step3_mining",
+      "source": "alignment_fitness_by_case.csv"
+    },
+    "RFP_mean_cycle_days": {
+      "value": 12.537211930893921,
+      "display": "12.5",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_median_approval_days": {
+      "value": 2.097893518518519,
+      "display": "2.1",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_median_cycle_days": {
+      "value": 9.035983796296296,
+      "display": "9.0",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_median_final_to_request_days": {
+      "value": 1.2721875,
+      "display": "1.3",
+      "kind": "d1",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "RFP_median_payment_days": {
+      "value": 5.938587962962963,
+      "display": "5.9",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_median_request_to_paid_days": {
+      "value": 3.2297685185185188,
+      "display": "3.2",
+      "kind": "d1",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "RFP_org_rejection_rate": {
+      "value": 0.15658937481655416,
+      "display": "15.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_p90_cycle_days": {
+      "value": 22.131511574074075,
+      "display": "22.1",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_paid_rate": {
+      "value": 0.9255943645435867,
+      "display": "92.6%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_r1": {
+      "value": 1,
+      "display": "1",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r1_rate": {
+      "value": 0.000146756677428823,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r2": {
+      "value": 625,
+      "display": "625",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r2_rate": {
+      "value": 0.09172292339301438,
+      "display": "9.2%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r2b": {
+      "value": 376,
+      "display": "376",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r2b_rate": {
+      "value": 0.05518051071323745,
+      "display": "5.5%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r3": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r3_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r4": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r4_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r5": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r5_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r6": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r6_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r7": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r7_rate": {
+      "value": 0.0,
+      "display": "0.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r8": {
+      "value": 611,
+      "display": "611",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_r8_rate": {
+      "value": 0.08966832990901086,
+      "display": "9.0%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "compliance_rules.csv"
+    },
+    "RFP_rejected_closed_rate": {
+      "value": 0.07220428529498092,
+      "display": "7.2%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_resubmission_rate": {
+      "value": 0.08966832990901086,
+      "display": "9.0%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_singleton_variants": {
+      "value": 41,
+      "display": "41",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "RFP_sla_breach_rate": {
+      "value": 0.25749167591564925,
+      "display": "25.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_log.csv"
+    },
+    "RFP_top1_variant_share": {
+      "value": 0.4418843557381861,
+      "display": "44.2%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "RFP_top5_variant_share": {
+      "value": 0.8862635749926622,
+      "display": "88.6%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "RFP_variants": {
+      "value": 88,
+      "display": "88",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "RFP_variants_for_90pct": {
+      "value": 6,
+      "display": "6",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "variants.csv"
+    },
+    "censor_days": {
+      "value": 90,
+      "display": "90",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "config.CENSOR_DAYS"
+    },
+    "dd_budgets_ge50": {
+      "value": 1,
+      "display": "1",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_dd_by_budget.csv"
+    },
+    "declare_window_days": {
+      "value": 60,
+      "display": "60",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "config.DECLARE_WINDOW_DAYS"
+    },
+    "dq_bronze_cases": {
+      "value": 23835,
+      "display": "23,835",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq/silver tables"
+    },
+    "dq_bronze_events": {
+      "value": 165384,
+      "display": "165,384",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq/silver tables"
+    },
+    "dq_dq01_hits": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq02_hits": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq03_hits": {
+      "value": 15,
+      "display": "15",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq04_hits": {
+      "value": 281,
+      "display": "281",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq05_hits": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq06_hits": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq07_hits": {
+      "value": 300,
+      "display": "300",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq08_hits": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq09_hits": {
+      "value": 4,
+      "display": "4",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq10_hits": {
+      "value": 4,
+      "display": "4",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq11_hits": {
+      "value": 513,
+      "display": "513",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_dq12_hits": {
+      "value": 1068,
+      "display": "1,068",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq.rule_results"
+    },
+    "dq_quarantined_cases": {
+      "value": 281,
+      "display": "281",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq/silver tables"
+    },
+    "dq_quarantined_events": {
+      "value": 15,
+      "display": "15",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq/silver tables"
+    },
+    "dq_silver_cases": {
+      "value": 23554,
+      "display": "23,554",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq/silver tables"
+    },
+    "dq_silver_events": {
+      "value": 164714,
+      "display": "164,714",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "dq/silver tables"
+    },
+    "excel_claim_rows": {
+      "value": 23554,
+      "display": "23,554",
+      "kind": "int",
+      "step": "step5_excel",
+      "source": "ClaimPulse_KPI_Pack.xlsx"
+    },
+    "excel_org_units": {
+      "value": 23,
+      "display": "23",
+      "kind": "int",
+      "step": "step5_excel",
+      "source": "ClaimPulse_KPI_Pack.xlsx"
+    },
+    "first_submit_month": {
+      "value": "January 2017",
+      "display": "January 2017",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "gold_DD_claims": {
+      "value": 10365,
+      "display": "10,365",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "gold_ID_claims": {
+      "value": 6375,
+      "display": "6,375",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "gold_RFP_claims": {
+      "value": 6814,
+      "display": "6,814",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "gold_censored_claims": {
+      "value": 0,
+      "display": "0",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "gold_claims": {
+      "value": 23554,
+      "display": "23,554",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "gold_transitions": {
+      "value": 107656,
+      "display": "107,656",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "gold.transition"
+    },
+    "history_smoothing": {
+      "value": 20,
+      "display": "20",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "config.HISTORY_SMOOTHING"
+    },
+    "history_window_days": {
+      "value": 180,
+      "display": "180",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "config.HISTORY_WINDOW_DAYS"
+    },
+    "horizon_DD": {
+      "value": "17 June 2019",
+      "display": "17 June 2019",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "silver.log_horizon"
+    },
+    "horizon_ID": {
+      "value": "20 August 2019",
+      "display": "20 August 2019",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "silver.log_horizon"
+    },
+    "horizon_RFP": {
+      "value": "08 August 2019",
+      "display": "08 August 2019",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "silver.log_horizon"
+    },
+    "last_submit_month": {
+      "value": "December 2018",
+      "display": "December 2018",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "gold.claim"
+    },
+    "median_cycle_with_budget_owner_step": {
+      "value": 11.406168981481482,
+      "display": "11.4",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "median_cycle_with_director_step": {
+      "value": 13.525978009259259,
+      "display": "13.5",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "median_cycle_with_rejected_any": {
+      "value": 15.062528935185185,
+      "display": "15.1",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "median_cycle_without_budget_owner_step": {
+      "value": 7.294311342592593,
+      "display": "7.3",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "median_cycle_without_director_step": {
+      "value": 8.384976851851851,
+      "display": "8.4",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "median_cycle_without_rejected_any": {
+      "value": 7.988518518518519,
+      "display": "8.0",
+      "kind": "d1",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "model_base_rate_train": {
+      "value": 0.27599093997734997,
+      "display": "27.6%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_best_min_child": {
+      "value": 20,
+      "display": "20",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "validation search"
+    },
+    "model_best_num_leaves": {
+      "value": 7,
+      "display": "7",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "validation search"
+    },
+    "model_best_trees": {
+      "value": 100,
+      "display": "100",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "validation search"
+    },
+    "model_bootstrap_resamples": {
+      "value": 1000,
+      "display": "1,000",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "config.BOOTSTRAP_RESAMPLES"
+    },
+    "model_ci_level": {
+      "value": 0.95,
+      "display": "95.0%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "config.CI_LEVEL"
+    },
+    "model_feature_list": {
+      "value": "Domestic declaration; International declaration; Request for payment; Claim amount (log); Zero amount; Submission hour; Submission weekday; Submission month; Submission day of month; Claims submitted in prior 7 days (same log); Org unit: claims closed in prior 180 days (log); Org unit: problem rate, prior 180 days; Budget: claims closed in prior 180 days (log); Budget: problem rate, prior 180 days; Days from trip end to submission; Trip length (days); Permit final-approved before submission; Permit approved after trip start; Permit rejections before submission; Amount / permit requested budget; Cost type",
+      "display": "Domestic declaration; International declaration; Request for payment; Claim amount (log); Zero amount; Submission hour; Submission weekday; Submission month; Submission day of month; Claims submitted in prior 7 days (same log); Org unit: claims closed in prior 180 days (log); Org unit: problem rate, prior 180 days; Budget: claims closed in prior 180 days (log); Budget: problem rate, prior 180 days; Days from trip end to submission; Trip length (days); Permit final-approved before submission; Permit approved after trip start; Permit rejections before submission; Amount / permit requested budget; Cost type",
+      "kind": "auto",
+      "step": "step4_model",
+      "source": "model.FEATURES"
+    },
+    "model_grid_size": {
+      "value": 27,
+      "display": "27",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "validation search"
+    },
+    "model_n_features": {
+      "value": 21,
+      "display": "21",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "model.FEATURES"
+    },
+    "model_n_test": {
+      "value": 9643,
+      "display": "9,643",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_n_train": {
+      "value": 8830,
+      "display": "8,830",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_n_valid": {
+      "value": 5081,
+      "display": "5,081",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_pos_rate_test": {
+      "value": 0.4080680286217982,
+      "display": "40.8%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_pos_rate_train": {
+      "value": 0.27599093997734997,
+      "display": "27.6%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_pos_rate_valid": {
+      "value": 0.3361543003345798,
+      "display": "33.6%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "model features"
+    },
+    "model_test_auc": {
+      "value": 0.6940040238671688,
+      "display": "0.694",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_DD": {
+      "value": 0.7074164848423794,
+      "display": "0.707",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_ID": {
+      "value": 0.627609604601377,
+      "display": "0.628",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_RFP": {
+      "value": 0.6285959120003988,
+      "display": "0.629",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_ci_high": {
+      "value": 0.7038128473223699,
+      "display": "0.704",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_ci_low": {
+      "value": 0.6831703363986212,
+      "display": "0.683",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_log_type_only": {
+      "value": 0.5943757351638264,
+      "display": "0.594",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_logistic": {
+      "value": 0.6411897878008884,
+      "display": "0.641",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_vs_rejected": {
+      "value": 0.6707332440817715,
+      "display": "0.671",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_vs_sla_paid": {
+      "value": 0.6776909076628488,
+      "display": "0.678",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_auc_vs_unpaid": {
+      "value": 0.7510771385225814,
+      "display": "0.751",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_brier_base_rate": {
+      "value": 0.2589928699833109,
+      "display": "0.259",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_brier_calibrated": {
+      "value": 0.22193204965770125,
+      "display": "0.222",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_pr_auc": {
+      "value": 0.6338741402277968,
+      "display": "0.634",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_start": {
+      "value": "01 July 2018",
+      "display": "01 July 2018",
+      "kind": "auto",
+      "step": "step4_model",
+      "source": "config"
+    },
+    "model_test_top_decile_lift": {
+      "value": 1.8989389298085593,
+      "display": "1.90",
+      "kind": "d2",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_test_top_decile_rate": {
+      "value": 0.774896265560166,
+      "display": "77.5%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "model_metrics.json"
+    },
+    "model_valid_auc": {
+      "value": 0.652702599024767,
+      "display": "0.653",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "validation search"
+    },
+    "model_valid_start": {
+      "value": "01 April 2018",
+      "display": "01 April 2018",
+      "kind": "auto",
+      "step": "step4_model",
+      "source": "config"
+    },
+    "org_min_claims": {
+      "value": 50,
+      "display": "50",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpis.ORG_MIN"
+    },
+    "org_rejection_events": {
+      "value": 4566,
+      "display": "4,566",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "rejections_by_role.csv"
+    },
+    "org_unit_rej_max": {
+      "value": 0.35909090909090907,
+      "display": "35.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_org_unit.csv"
+    },
+    "org_unit_rej_min": {
+      "value": 0.0707070707070707,
+      "display": "7.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_org_unit.csv"
+    },
+    "org_unit_sla_max": {
+      "value": 0.5466666666666666,
+      "display": "54.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_org_unit.csv"
+    },
+    "org_unit_sla_min": {
+      "value": 0.12971175166297116,
+      "display": "13.0%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_by_org_unit.csv"
+    },
+    "org_units_ge50": {
+      "value": 27,
+      "display": "27",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "kpi_by_org_unit.csv"
+    },
+    "payments_peak_hour": {
+      "value": "17:00",
+      "display": "17:00",
+      "kind": "auto",
+      "step": "step3_mining",
+      "source": "payment_batch_profile.csv"
+    },
+    "payments_peak_hour_share": {
+      "value": 0.9873097572880153,
+      "display": "98.7%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "payment_batch_profile.csv"
+    },
+    "payments_top2_days_share": {
+      "value": 0.9956959666326486,
+      "display": "99.6%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "payment_batch_profile.csv"
+    },
+    "payments_top_days": {
+      "value": "Thursdays and Mondays",
+      "display": "Thursdays and Mondays",
+      "kind": "auto",
+      "step": "step3_mining",
+      "source": "payment_batch_profile.csv"
+    },
+    "payments_total": {
+      "value": 22537,
+      "display": "22,537",
+      "kind": "int",
+      "step": "step3_mining",
+      "source": "payment_batch_profile.csv"
+    },
+    "pbi_dim_org_rows": {
+      "value": 38,
+      "display": "38",
+      "kind": "int",
+      "step": "step5_powerbi",
+      "source": "dim_org.csv"
+    },
+    "pbi_dim_step_rows": {
+      "value": 21,
+      "display": "21",
+      "kind": "int",
+      "step": "step5_powerbi",
+      "source": "dim_step.csv"
+    },
+    "pbi_fact_claim_rows": {
+      "value": 23554,
+      "display": "23,554",
+      "kind": "int",
+      "step": "step5_powerbi",
+      "source": "fact_claim.csv"
+    },
+    "pbi_fact_transition_rows": {
+      "value": 107656,
+      "display": "107,656",
+      "kind": "int",
+      "step": "step5_powerbi",
+      "source": "fact_transition.csv"
+    },
+    "rag_AMBER_capture": {
+      "value": 0.2785260482846252,
+      "display": "27.9%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_AMBER_claims": {
+      "value": 1934,
+      "display": "1,934",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_AMBER_problem_rate": {
+      "value": 0.5667011375387797,
+      "display": "56.7%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_AMBER_share": {
+      "value": 0.2005599917038266,
+      "display": "20.1%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_GREEN_capture": {
+      "value": 0.5484116899618806,
+      "display": "54.8%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_GREEN_claims": {
+      "value": 6828,
+      "display": "6,828",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_GREEN_problem_rate": {
+      "value": 0.3160515524311658,
+      "display": "31.6%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_GREEN_share": {
+      "value": 0.7080783988385357,
+      "display": "70.8%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_RED_capture": {
+      "value": 0.1730622617534943,
+      "display": "17.3%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_RED_claims": {
+      "value": 881,
+      "display": "881",
+      "kind": "int",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_RED_problem_rate": {
+      "value": 0.7729852440408627,
+      "display": "77.3%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_RED_share": {
+      "value": 0.09136160945763766,
+      "display": "9.1%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_amber_band_pct": {
+      "value": 0.19999999999999998,
+      "display": "20.0%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "config.RAG_AMBER_TOP"
+    },
+    "rag_amber_cut": {
+      "value": 0.3168748646873299,
+      "display": "0.317",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "validation quantile of raw score"
+    },
+    "rag_red_amber_capture": {
+      "value": 0.4515883100381195,
+      "display": "45.2%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "rag_band_summary.csv"
+    },
+    "rag_red_cut": {
+      "value": 0.4148017980661114,
+      "display": "0.415",
+      "kind": "d3",
+      "step": "step4_model",
+      "source": "validation quantile of raw score"
+    },
+    "rag_red_top_pct": {
+      "value": 0.1,
+      "display": "10.0%",
+      "kind": "pct",
+      "step": "step4_model",
+      "source": "config.RAG_RED_TOP"
+    },
+    "shap_top1": {
+      "value": "Claim amount (log)",
+      "display": "Claim amount (log)",
+      "kind": "auto",
+      "step": "step4_model",
+      "source": "shap_importance.csv"
+    },
+    "shap_top2": {
+      "value": "Submission month",
+      "display": "Submission month",
+      "kind": "auto",
+      "step": "step4_model",
+      "source": "shap_importance.csv"
+    },
+    "shap_top3": {
+      "value": "Org unit: claims closed in prior 180 days (log)",
+      "display": "Org unit: claims closed in prior 180 days (log)",
+      "kind": "auto",
+      "step": "step4_model",
+      "source": "shap_importance.csv"
+    },
+    "sla14_DD_breach_rate": {
+      "value": 0.20053768794185003,
+      "display": "20.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla14_ID_breach_rate": {
+      "value": 0.34346209794730886,
+      "display": "34.3%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla14_RFP_breach_rate": {
+      "value": 0.25749167591564925,
+      "display": "25.7%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla21_DD_breach_rate": {
+      "value": 0.09309967141292443,
+      "display": "9.3%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla21_ID_breach_rate": {
+      "value": 0.17132697591724583,
+      "display": "17.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla21_RFP_breach_rate": {
+      "value": 0.11415887109560806,
+      "display": "11.4%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla30_DD_breach_rate": {
+      "value": 0.04809319924325401,
+      "display": "4.8%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla30_ID_breach_rate": {
+      "value": 0.08243090350735413,
+      "display": "8.2%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla30_RFP_breach_rate": {
+      "value": 0.056445219597272875,
+      "display": "5.6%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla7_DD_breach_rate": {
+      "value": 0.6094792392711341,
+      "display": "60.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla7_ID_breach_rate": {
+      "value": 0.7325036366575077,
+      "display": "73.3%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla7_RFP_breach_rate": {
+      "value": 0.6792452830188679,
+      "display": "67.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "sla_sensitivity.csv"
+    },
+    "sla_days": {
+      "value": 14,
+      "display": "14",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "config.SLA_DAYS"
+    },
+    "sla_dd_within_share": {
+      "value": 0.79946231205815,
+      "display": "79.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "sla_sensitivity_list": {
+      "value": "7, 14, 21 and 30",
+      "display": "7, 14, 21 and 30",
+      "kind": "auto",
+      "step": "step2_kpis",
+      "source": "config.SLA_SENSITIVITY"
+    },
+    "sla_status_amber": {
+      "value": 0.2,
+      "display": "20.0%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "config.SLA_STATUS_AMBER"
+    },
+    "sla_status_amber_dec": {
+      "value": 0.2,
+      "display": "0.20",
+      "kind": "d2",
+      "step": "step2_kpis",
+      "source": "config.SLA_STATUS_AMBER"
+    },
+    "sla_status_red": {
+      "value": 0.3,
+      "display": "30.0%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "config.SLA_STATUS_RED"
+    },
+    "sla_status_red_dec": {
+      "value": 0.3,
+      "display": "0.30",
+      "kind": "d2",
+      "step": "step2_kpis",
+      "source": "config.SLA_STATUS_RED"
+    },
+    "src_DD_cases": {
+      "value": 10500,
+      "display": "10,500",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "bronze parse of XES"
+    },
+    "src_DD_counts_match": {
+      "value": "yes",
+      "display": "yes",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "manifest.json"
+    },
+    "src_DD_events": {
+      "value": 56437,
+      "display": "56,437",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "bronze parse of XES"
+    },
+    "src_DD_md5_match": {
+      "value": "yes",
+      "display": "yes",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "manifest.json"
+    },
+    "src_ID_cases": {
+      "value": 6449,
+      "display": "6,449",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "bronze parse of XES"
+    },
+    "src_ID_counts_match": {
+      "value": "yes",
+      "display": "yes",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "manifest.json"
+    },
+    "src_ID_events": {
+      "value": 72151,
+      "display": "72,151",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "bronze parse of XES"
+    },
+    "src_ID_md5_match": {
+      "value": "yes",
+      "display": "yes",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "manifest.json"
+    },
+    "src_RFP_cases": {
+      "value": 6886,
+      "display": "6,886",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "bronze parse of XES"
+    },
+    "src_RFP_counts_match": {
+      "value": "yes",
+      "display": "yes",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "manifest.json"
+    },
+    "src_RFP_events": {
+      "value": 36796,
+      "display": "36,796",
+      "kind": "int",
+      "step": "step1_data_layer",
+      "source": "bronze parse of XES"
+    },
+    "src_RFP_md5_match": {
+      "value": "yes",
+      "display": "yes",
+      "kind": "auto",
+      "step": "step1_data_layer",
+      "source": "manifest.json"
+    },
+    "top_rejecting_role": {
+      "value": "Administration",
+      "display": "Administration",
+      "kind": "auto",
+      "step": "step2_kpis",
+      "source": "rejections_by_role.csv"
+    },
+    "top_rejecting_role_share": {
+      "value": 0.7308366184844503,
+      "display": "73.1%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "rejections_by_role.csv"
+    },
+    "top_wait_transition": {
+      "value": "Request Payment to Payment Handled",
+      "display": "Request Payment to Payment Handled",
+      "kind": "auto",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "top_wait_transition_log": {
+      "value": "Domestic declarations",
+      "display": "Domestic declarations",
+      "kind": "auto",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "top_wait_transition_share": {
+      "value": 0.12138719986910462,
+      "display": "12.1%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "wait_share_final_to_request": {
+      "value": 0.24898093366695992,
+      "display": "24.9%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "wait_share_into_payment_handled": {
+      "value": 0.2693783074549848,
+      "display": "26.9%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "wait_share_post_approval": {
+      "value": 0.5183592411219448,
+      "display": "51.8%",
+      "kind": "pct",
+      "step": "step3_mining",
+      "source": "transition_waits.csv"
+    },
+    "worst_sla_month": {
+      "value": "August 2018",
+      "display": "August 2018",
+      "kind": "auto",
+      "step": "step2_kpis",
+      "source": "kpi_monthly.csv"
+    },
+    "worst_sla_month_log": {
+      "value": "International declarations",
+      "display": "International declarations",
+      "kind": "auto",
+      "step": "step2_kpis",
+      "source": "kpi_monthly.csv"
+    },
+    "worst_sla_month_rate": {
+      "value": 0.48923076923076925,
+      "display": "48.9%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "kpi_monthly.csv"
+    },
+    "zero_amount_claims": {
+      "value": 513,
+      "display": "513",
+      "kind": "int",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "zero_amount_problem_rate": {
+      "value": 0.9746588693957114,
+      "display": "97.5%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    },
+    "zero_amount_unpaid_rate": {
+      "value": 0.9629629629629629,
+      "display": "96.3%",
+      "kind": "pct",
+      "step": "step2_kpis",
+      "source": "gold.claim"
+    }
+  },
+  "steps": {
+    "step1_data_layer": {
+      "completed_utc": "2026-11-07T16:03:55Z",
+      "artefacts": [
+        "outputs/audit/manifest.json",
+        "outputs/kpis/dq_rule_results.csv"
+      ]
+    },
+    "step2_kpis": {
+      "completed_utc": "2026-11-07T16:03:56Z",
+      "artefacts": [
+        "outputs/figures/kpi_cycle_ecdf.png",
+        "outputs/figures/kpi_monthly_sla_breach.png",
+        "outputs/figures/kpi_monthly_volume.png",
+        "outputs/figures/kpi_rejections_by_role.png",
+        "outputs/kpis/cycle_by_path_features.csv",
+        "outputs/kpis/kpi_by_log.csv",
+        "outputs/kpis/kpi_by_org_unit.csv",
+        "outputs/kpis/kpi_by_year.csv",
+        "outputs/kpis/kpi_dd_by_budget.csv",
+        "outputs/kpis/kpi_monthly.csv",
+        "outputs/kpis/rejections_by_role.csv",
+        "outputs/kpis/sla_sensitivity.csv",
+        "outputs/kpis/wait_by_role.csv"
+      ]
+    },
+    "step3_mining": {
+      "completed_utc": "2026-11-07T16:04:05Z",
+      "artefacts": [
+        "outputs/figures/pm_bottlenecks.png",
+        "outputs/figures/pm_dfg_DD.png",
+        "outputs/figures/pm_discovered_DD.png",
+        "outputs/figures/pm_discovered_ID.png",
+        "outputs/figures/pm_discovered_RFP.png",
+        "outputs/figures/pm_payment_weekday.png",
+        "outputs/figures/pm_reference_model.png",
+        "outputs/figures/pm_variant_coverage.png",
+        "outputs/mining/alignment_fitness_by_case.csv",
+        "outputs/mining/compliance_rules.csv",
+        "outputs/mining/discovered_DD.pnml",
+        "outputs/mining/discovered_ID.pnml",
+        "outputs/mining/discovered_RFP.pnml",
+        "outputs/mining/payment_batch_profile.csv",
+        "outputs/mining/reference_model.pnml",
+        "outputs/mining/request_payment_weekday.csv",
+        "outputs/mining/transition_waits.csv",
+        "outputs/mining/variants.csv"
+      ]
+    },
+    "step4_model": {
+      "completed_utc": "2026-11-07T16:05:48Z",
+      "artefacts": [
+        "outputs/figures/model_calibration.png",
+        "outputs/figures/model_rag_bands.png",
+        "outputs/figures/model_shap_beeswarm.png",
+        "outputs/figures/model_shap_importance.png",
+        "outputs/model/calibration_test.csv",
+        "outputs/model/model_metrics.json",
+        "outputs/model/rag_band_summary.csv",
+        "outputs/model/rag_monitor_claims.csv",
+        "outputs/model/rag_monthly.csv",
+        "outputs/model/shap_importance.csv"
+      ]
+    },
+    "step5_powerbi": {
+      "completed_utc": "2026-11-07T16:05:49Z",
+      "artefacts": [
+        "outputs/powerbi/dim_date.csv",
+        "outputs/powerbi/dim_log.csv",
+        "outputs/powerbi/dim_org.csv",
+        "outputs/powerbi/dim_rag.csv",
+        "outputs/powerbi/dim_step.csv",
+        "outputs/powerbi/fact_claim.csv",
+        "outputs/powerbi/fact_transition.csv"
+      ]
+    },
+    "step5_excel": {
+      "completed_utc": "2026-11-07T16:05:57Z",
+      "artefacts": [
+        "outputs/excel/ClaimPulse_KPI_Pack.xlsx"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+log,budget_number,claims,paid_rate,org_rejection_rate,rejected_closed_rate,resubmission_rate,first_time_right_rate,median_cycle_days,p90_cycle_days,mean_cycle_days,sla_breach_rate,median_approval_days,median_payment_days
+DD,budget 86566,10365,0.9689339122045345,0.1255185721177038,0.03106608779546551,0.09831162566328992,0.8744814278822962,7.41130787037037,20.153358796296295,11.61751691799343,0.20053768794185003,1.5570833333333334,5.31494212962963

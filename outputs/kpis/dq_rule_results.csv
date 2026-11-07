@@ -1,0 +1,13 @@
+rule_id,level,action,description,hits
+DQ01,event,QUARANTINE,Event timestamp cannot be parsed,0
+DQ02,event,QUARANTINE,Duplicate event id within the same case (later copies removed),0
+DQ03,event,QUARANTINE,"Exact duplicate of (case, activity, timestamp) (later copies removed)",15
+DQ04,case,QUARANTINE,Case has no claim submission by the employee,281
+DQ05,case,QUARANTINE,Claim amount missing or negative,0
+DQ06,case,QUARANTINE,Payment Handled earlier than first claim submission,0
+DQ07,event,FLAG,Actor role recorded as MISSING,300
+DQ08,case,FLAG,Event timestamps not in non-decreasing order within the XES trace,0
+DQ09,case,FLAG,Event dated after the log's observed claim-processing horizon (planned trip),4
+DQ10,case,FLAG,Request Payment present but no Payment Handled,4
+DQ11,case,FLAG,Claim amount equal to zero,513
+DQ12,case,FLAG,Permit-level events shared with another declaration of the same travel permit,1068

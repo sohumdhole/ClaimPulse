@@ -1,0 +1,4 @@
+log_code,log_name,needs_travel_permit
+DD,Domestic declarations,0
+ID,International declarations,1
+RFP,Requests for payment,0

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imdf_net_1794067443.4693959" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imdf_net_1794067443.4693959</text>
+    </name>
+    <page id="n0">
+      <place id="p_3">
+        <name>
+          <text>p_3</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <place id="p_7">
+        <name>
+          <text>p_7</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_4">
+        <name>
+          <text>p_4</text>
+        </name>
+      </place>
+      <place id="p_8">
+        <name>
+          <text>p_8</text>
+        </name>
+      </place>
+      <transition id="skip_1">
+        <name>
+          <text>skip_1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="ca945b8a-b5aa-4d66-8c84-eace734143e0"/>
+      </transition>
+      <transition id="5340f337-74de-40c5-86d6-bcc7b0f7af5e">
+        <name>
+          <text>APPROVED by BUDGET OWNER</text>
+        </name>
+      </transition>
+      <transition id="5214426d-13a8-4f7e-9f04-82a4cc0a07fd">
+        <name>
+          <text>APPROVED by SUPERVISOR</text>
+        </name>
+      </transition>
+      <transition id="2c522087-626f-456c-a16c-4a4a16be3c17">
+        <name>
+          <text>FINAL_APPROVED by DIRECTOR</text>
+        </name>
+      </transition>
+      <transition id="859f5e0f-bf26-426e-9741-527dbf9691a7">
+        <name>
+          <text>Payment Handled</text>
+        </name>
+      </transition>
+      <transition id="a844be80-53e3-4aea-8445-12f12ba8cbf0">
+        <name>
+          <text>SUBMITTED by EMPLOYEE</text>
+        </name>
+      </transition>
+      <transition id="9e365b1c-c76d-4731-912f-5c4c192b975b">
+        <name>
+          <text>APPROVED by ADMINISTRATION</text>
+        </name>
+      </transition>
+      <transition id="fa7b960a-2fb1-4273-a864-0f272bea9c78">
+        <name>
+          <text>FINAL_APPROVED by SUPERVISOR</text>
+        </name>
+      </transition>
+      <transition id="3392c135-f3e0-4300-8561-a72a80b032e3">
+        <name>
+          <text>Request Payment</text>
+        </name>
+      </transition>
+      <arc id="140527491342848" source="9e365b1c-c76d-4731-912f-5c4c192b975b" target="p_4"/>
+      <arc id="140527495698976" source="p_4" target="5340f337-74de-40c5-86d6-bcc7b0f7af5e"/>
+      <arc id="140527495704800" source="p_4" target="skip_1"/>
+      <arc id="140527495702560" source="p_5" target="fa7b960a-2fb1-4273-a864-0f272bea9c78"/>
+      <arc id="140527495704576" source="5214426d-13a8-4f7e-9f04-82a4cc0a07fd" target="p_7"/>
+      <arc id="140527495705248" source="p_7" target="2c522087-626f-456c-a16c-4a4a16be3c17"/>
+      <arc id="140527495706592" source="3392c135-f3e0-4300-8561-a72a80b032e3" target="p_8"/>
+      <arc id="140527572631040" source="p_8" target="859f5e0f-bf26-426e-9741-527dbf9691a7"/>
+      <arc id="140527496293280" source="859f5e0f-bf26-426e-9741-527dbf9691a7" target="sink"/>
+      <arc id="140527491337136" source="source" target="a844be80-53e3-4aea-8445-12f12ba8cbf0"/>
+      <arc id="140527491338480" source="p_3" target="9e365b1c-c76d-4731-912f-5c4c192b975b"/>
+      <arc id="140527491340720" source="a844be80-53e3-4aea-8445-12f12ba8cbf0" target="p_3"/>
+      <arc id="140527495704912" source="5340f337-74de-40c5-86d6-bcc7b0f7af5e" target="p_5"/>
+      <arc id="140527495704688" source="skip_1" target="p_5"/>
+      <arc id="140527495698192" source="fa7b960a-2fb1-4273-a864-0f272bea9c78" target="p_6"/>
+      <arc id="140527495699536" source="p_5" target="5214426d-13a8-4f7e-9f04-82a4cc0a07fd"/>
+      <arc id="140527495700880" source="2c522087-626f-456c-a16c-4a4a16be3c17" target="p_6"/>
+      <arc id="140527495701104" source="p_6" target="3392c135-f3e0-4300-8561-a72a80b032e3"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

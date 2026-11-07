@@ -1,0 +1,83 @@
+// ClaimPulse DAX measures. Create a table called _Measures and add each measure below.
+// What-if parameters (Modeling > New parameter > Numeric range):
+//   'SLA Days'         from 1 to 60, increment 1, default 14
+//   'Amber Threshold'  from 0 to 1, increment 0.01, default 0.20
+//   'Red Threshold'    from 0 to 1, increment 0.01, default 0.30
+
+// ---------- volume and outcome ----------
+Claims = COUNTROWS ( fact_claim )
+
+Paid Claims = CALCULATE ( [Claims], fact_claim[outcome] = "PAID" )
+
+Paid Rate = DIVIDE ( [Paid Claims], [Claims] )
+
+Rejection Rate = DIVIDE ( CALCULATE ( [Claims], fact_claim[rejected_any] = 1 ), [Claims] )
+
+Closed Rejected Rate = DIVIDE ( CALCULATE ( [Claims], fact_claim[outcome] = "REJECTED_CLOSED" ), [Claims] )
+
+Resubmission Rate = DIVIDE ( CALCULATE ( [Claims], fact_claim[resubmitted] = 1 ), [Claims] )
+
+First Time Right Rate = DIVIDE ( CALCULATE ( [Claims], fact_claim[first_time_right] = 1 ), [Claims] )
+
+Claims MoM % =
+VAR cur = [Claims]
+VAR prev = CALCULATE ( [Claims], DATEADD ( dim_date[date], -1, MONTH ) )
+RETURN DIVIDE ( cur - prev, prev )
+
+// ---------- cycle time and SLA ----------
+Median Cycle Days = CALCULATE ( MEDIAN ( fact_claim[cycle_days] ), fact_claim[outcome] = "PAID" )
+
+P90 Cycle Days = CALCULATE ( PERCENTILE.INC ( fact_claim[cycle_days], 0.9 ), fact_claim[outcome] = "PAID" )
+
+Median Approval Days = MEDIAN ( fact_claim[approval_days] )
+
+Median Payment Days = MEDIAN ( fact_claim[payment_days] )
+
+SLA Days Value = SELECTEDVALUE ( 'SLA Days'[SLA Days], 14 )
+
+SLA Breach Rate =
+VAR t = [SLA Days Value]
+RETURN DIVIDE ( CALCULATE ( [Claims], fact_claim[outcome] = "PAID", fact_claim[cycle_days] > t ), [Paid Claims] )
+
+SLA Status =
+VAR r = [SLA Breach Rate]
+VAR red = SELECTEDVALUE ( 'Red Threshold'[Red Threshold], 0.30 )
+VAR amber = SELECTEDVALUE ( 'Amber Threshold'[Amber Threshold], 0.20 )
+RETURN SWITCH ( TRUE (), ISBLANK ( r ), BLANK (), r >= red, "RED", r >= amber, "AMBER", "GREEN" )
+
+SLA Status Colour =
+SWITCH ( [SLA Status], "RED", "#d03b3b", "AMBER", "#fab219", "GREEN", "#0ca30c" )
+
+// ---------- bottlenecks (fact_transition) ----------
+Handoffs = COUNTROWS ( fact_transition )
+
+Total Wait Days = DIVIDE ( SUM ( fact_transition[wait_hours] ), 24 )
+
+Median Wait Days = DIVIDE ( MEDIAN ( fact_transition[wait_hours] ), 24 )
+
+Wait Share = DIVIDE ( [Total Wait Days], CALCULATE ( [Total Wait Days], ALLSELECTED ( fact_transition ) ) )
+
+Payments by Payment Date =
+CALCULATE ( [Paid Claims], USERELATIONSHIP ( fact_claim[payment_date_key], dim_date[date_key] ) )
+
+// ---------- conformance ----------
+Conformance Rate = DIVIDE ( CALCULATE ( [Claims], fact_claim[conforms_to_reference] = 1 ), [Claims] )
+
+Mean Alignment Fitness = AVERAGE ( fact_claim[alignment_fitness] )
+
+// ---------- early warning ----------
+Scored Claims = CALCULATE ( [Claims], fact_claim[rag] <> "NOT SCORED" )
+
+Problem Rate = DIVIDE ( CALCULATE ( [Claims], fact_claim[problem_claim] = 1 ), [Claims] )
+
+RED Precision = CALCULATE ( [Problem Rate], fact_claim[rag] = "RED" )
+
+GREEN Problem Rate = CALCULATE ( [Problem Rate], fact_claim[rag] = "GREEN" )
+
+Problem Capture RED AMBER =
+DIVIDE (
+    CALCULATE ( [Claims], fact_claim[problem_claim] = 1, fact_claim[rag] IN { "RED", "AMBER" } ),
+    CALCULATE ( [Claims], fact_claim[problem_claim] = 1, fact_claim[rag] <> "NOT SCORED" )
+)
+
+Mean Risk Score = AVERAGE ( fact_claim[risk_score] )

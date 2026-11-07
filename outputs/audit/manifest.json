@@ -1,0 +1,58 @@
+{
+  "generated_utc": "2026-11-07T16:03:50Z",
+  "licence": "CC BY-NC 4.0",
+  "citation": "van Dongen, B. (2020). BPI Challenge 2020. 4TU.ResearchData. https://doi.org/10.4121/uuid:52fb97d4-4588-43c9-9d04-3604d4613b51",
+  "files": [
+    {
+      "log": "DD",
+      "name": "Domestic Declarations",
+      "file": "DomesticDeclarations.xes.gz",
+      "doi": "10.4121/uuid:3f422315-ed9d-4882-891f-e180b5b4feb5",
+      "url": "https://data.4tu.nl/datasets/6a0a26d2-82d0-4018-b1cd-89afb0e8627f",
+      "md5": "6a78c39491498363ce4788e0e8ca75ef",
+      "sha256": "0bc3312acf0b9ee5ae6f4ebe9df204005ef11665d62f2d21dd04995161d7532b",
+      "bytes": 933930,
+      "published_md5": "6a78c39491498363ce4788e0e8ca75ef",
+      "md5_match": true,
+      "parsed_cases": 10500,
+      "parsed_events": 56437,
+      "published_cases": 10500,
+      "published_events": 56437,
+      "counts_match": true
+    },
+    {
+      "log": "ID",
+      "name": "International Declarations",
+      "file": "InternationalDeclarations.xes.gz",
+      "doi": "10.4121/uuid:2bbf8f6a-fc50-48eb-aa9e-c4ea5ef7e8c5",
+      "url": "https://data.4tu.nl/articles/_/12687374/1",
+      "md5": "1ec65e046f70bb399cc6d2c154cd615a",
+      "sha256": "b527c8d06255f4312c6ce8f36f7f4110243d84fd6ca48583cd9b80896c601494",
+      "bytes": 1581144,
+      "published_md5": "1ec65e046f70bb399cc6d2c154cd615a",
+      "md5_match": true,
+      "parsed_cases": 6449,
+      "parsed_events": 72151,
+      "published_cases": 6449,
+      "published_events": 72151,
+      "counts_match": true
+    },
+    {
+      "log": "RFP",
+      "name": "Request For Payment",
+      "file": "RequestForPayment.xes.gz",
+      "doi": "10.4121/uuid:895b26fb-6f25-46eb-9e48-0dca26fcd030",
+      "url": "https://data.4tu.nl/articles/_/12706886/1",
+      "md5": "2eb4dd20e70b8de4e32cc3c239bde7f2",
+      "sha256": "028e2d645153190200b2ea998747efa02cf1beb6f83db62598963cf391f114b1",
+      "bytes": 696896,
+      "published_md5": "2eb4dd20e70b8de4e32cc3c239bde7f2",
+      "md5_match": true,
+      "parsed_cases": 6886,
+      "parsed_events": 36796,
+      "published_cases": 6886,
+      "published_events": 36796,
+      "counts_match": true
+    }
+  ]
+}

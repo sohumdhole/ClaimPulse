@@ -1,0 +1,4 @@
+log,claims,r1_paid_without_final_approval,r2_paid_without_admin_check,r2b_pre_approver_instead_of_admin,r3_admin_after_final_approval,r4_payment_requested_before_final_approval,r5_no_approved_permit,r6_permit_approved_after_trip_start,r7_declared_late_after_trip,r8_resubmitted
+DD,10365,1,1463,659,3,0,0,0,0,1019
+ID,6375,0,745,544,1,0,438,1115,321,1405
+RFP,6814,1,625,376,0,0,0,0,0,611

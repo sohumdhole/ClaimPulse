@@ -1,0 +1,214 @@
+# Methodology
+
+Every figure on this page is rendered from `outputs/audit/audit.json`. Each audit entry names the step and the artefact that produced it.
+
+## 1. Data and provenance
+
+| Log | File | Cases | Events | MD5 matches 4TU | Counts match published |
+|---|---|---|---|---|---|
+| Domestic Declarations (DD) | `DomesticDeclarations.xes.gz` | {{src_DD_cases}} | {{src_DD_events}} | {{src_DD_md5_match}} | {{src_DD_counts_match}} |
+| International Declarations (ID) | `InternationalDeclarations.xes.gz` | {{src_ID_cases}} | {{src_ID_events}} | {{src_ID_md5_match}} | {{src_ID_counts_match}} |
+| Request For Payment (RFP) | `RequestForPayment.xes.gz` | {{src_RFP_cases}} | {{src_RFP_events}} | {{src_RFP_md5_match}} | {{src_RFP_counts_match}} |
+
+`outputs/audit/manifest.json` records byte size, MD5, SHA-256, DOI, landing page and licence (CC BY-NC 4.0) for each file. The ingest step refuses to run if an MD5 differs from the published value.
+
+Observed attributes:
+- **Event level:** activity, timestamp, resource and role. Resources are anonymised to `STAFF MEMBER` or `SYSTEM`.
+- **Domestic trace level:** amount, budget number and declaration number.
+- **International trace level:** the linked travel permit with its organisational unit, project and requested budget, plus trip start and end events.
+- **Request-for-payment trace level:** organisational unit, project, cost type and requested amount.
+
+## 2. Warehouse layers and data quality
+
+- **Bronze**: a lossless long-format copy of every trace attribute and event ({{dq_bronze_cases}} cases, {{dq_bronze_events}} events).
+- **Silver**: timestamps parsed to UTC (local time kept as Europe/Amsterdam), activities decomposed into document type, action and acting role, data-quality rules applied ({{dq_silver_cases}} cases, {{dq_silver_events}} events).
+- **Gold**: `gold.claim`, one row per claim ({{gold_claims}} claims), and `gold.transition`, one row per hand-off between consecutive claim or payment steps ({{gold_transitions}} hand-offs).
+
+| Rule | Action | Check | Hits |
+|---|---|---|---|
+| DQ01 | Quarantine event | Timestamp cannot be parsed | {{dq_dq01_hits}} |
+| DQ02 | Quarantine event | Duplicate event id within the same case | {{dq_dq02_hits}} |
+| DQ03 | Quarantine event | Exact duplicate of case, activity and timestamp | {{dq_dq03_hits}} |
+| DQ04 | Quarantine case | No claim submission by the employee | {{dq_dq04_hits}} |
+| DQ05 | Quarantine case | Amount missing or negative | {{dq_dq05_hits}} |
+| DQ06 | Quarantine case | Payment handled before first submission | {{dq_dq06_hits}} |
+| DQ07 | Flag | Acting role recorded as MISSING | {{dq_dq07_hits}} |
+| DQ08 | Flag | Timestamps out of order within the trace | {{dq_dq08_hits}} |
+| DQ09 | Flag | Event dated after the log's claim-processing horizon (planned trip) | {{dq_dq09_hits}} |
+| DQ10 | Flag | Payment requested but never handled | {{dq_dq10_hits}} |
+| DQ11 | Flag | Amount equal to zero | {{dq_dq11_hits}} |
+| DQ12 | Flag | Permit-level events shared with another declaration of the same permit | {{dq_dq12_hits}} |
+
+A design note on DQ02. My first version checked event ids across the whole log and flagged thousands of duplicates. Inspection showed these were permit, trip and reminder events, which the publisher copies into every declaration linked to the same travel permit. They are legitimate, so the rule was rescoped to duplicates within a case, and permit sharing is reported as the DQ12 flag instead.
+
+Right-censoring guard: claims submitted within {{censor_days}} days of their log's last processing event would be excluded from outcome KPIs. In this extraction no claim falls in that window ({{gold_censored_claims}} claims). All claims were submitted between {{first_submit_month}} and {{last_submit_month}}, and the logs run until {{horizon_DD}} (DD), {{horizon_ID}} (ID) and {{horizon_RFP}} (RFP).
+
+## 3. Definitions
+
+Full KPI dictionary: [reporting_requirements.md](reporting_requirements.md). The core definitions:
+
+- **Submission**: `SUBMITTED by EMPLOYEE` on the claim document. The first submission starts the clock.
+- **Organisational rejection**: `REJECTED by` any reviewing role (administration, pre-approver, budget owner, supervisor, director, or MISSING). `REJECTED by EMPLOYEE` is the employee closing or withdrawing after a rejection, so it is not counted as an organisational rejection.
+- **Outcome**: PAID if `Payment Handled` exists; REJECTED_CLOSED if not paid and the last claim event is a rejection; otherwise OPEN.
+- **Cycle time**: calendar days from first submission to the last `Payment Handled`.
+- **Analytical SLA**: a paid claim breaches when its cycle exceeds {{sla_days}} days. The data contains no TU/e service level, so this is my threshold. {{sla_dd_within_share}} of paid domestic claims meet it, and `outputs/kpis/sla_sensitivity.csv` shows breach rates at {{sla_sensitivity_list}} days.
+- **First time right**: paid, never rejected and never resubmitted.
+- **Problem claim** (model target): rejected at least once, OR not paid, OR paid after the SLA.
+
+## 4. Operational KPIs
+
+| KPI | DD | ID | RFP | All |
+|---|---|---|---|---|
+| Claims | {{DD_claims}} | {{ID_claims}} | {{RFP_claims}} | {{ALL_claims}} |
+| Paid | {{DD_paid_rate}} | {{ID_paid_rate}} | {{RFP_paid_rate}} | {{ALL_paid_rate}} |
+| Rejected at least once | {{DD_org_rejection_rate}} | {{ID_org_rejection_rate}} | {{RFP_org_rejection_rate}} | {{ALL_org_rejection_rate}} |
+| Closed as rejected | {{DD_rejected_closed_rate}} | {{ID_rejected_closed_rate}} | {{RFP_rejected_closed_rate}} | {{ALL_rejected_closed_rate}} |
+| Resubmitted | {{DD_resubmission_rate}} | {{ID_resubmission_rate}} | {{RFP_resubmission_rate}} | {{ALL_resubmission_rate}} |
+| First time right | {{DD_first_time_right_rate}} | {{ID_first_time_right_rate}} | {{RFP_first_time_right_rate}} | {{ALL_first_time_right_rate}} |
+| Median cycle (days) | {{DD_median_cycle_days}} | {{ID_median_cycle_days}} | {{RFP_median_cycle_days}} | {{ALL_median_cycle_days}} |
+| P90 cycle (days) | {{DD_p90_cycle_days}} | {{ID_p90_cycle_days}} | {{RFP_p90_cycle_days}} | {{ALL_p90_cycle_days}} |
+| Median submission to final approval (days) | {{DD_median_approval_days}} | {{ID_median_approval_days}} | {{RFP_median_approval_days}} | {{ALL_median_approval_days}} |
+| Median final approval to payment (days) | {{DD_median_payment_days}} | {{ID_median_payment_days}} | {{RFP_median_payment_days}} | {{ALL_median_payment_days}} |
+| SLA breach (paid claims) | {{DD_sla_breach_rate}} | {{ID_sla_breach_rate}} | {{RFP_sla_breach_rate}} | {{ALL_sla_breach_rate}} |
+
+**Scope change.** 2017 covers two departments and 2018 the whole university:
+- DD volume moves from {{DD_2017_claims}} claims to {{DD_2018_claims}}.
+- DD SLA breach moves from {{DD_2017_sla_breach_rate}} to {{DD_2018_sla_breach_rate}}.
+- ID SLA breach moves from {{ID_2017_sla_breach_rate}} to {{ID_2018_sla_breach_rate}}.
+
+These are reported per year in `outputs/kpis/kpi_by_year.csv`.
+
+Effect of extra steps on the median cycle of paid claims:
+- **Budget-owner approval:** {{median_cycle_with_budget_owner_step}} days with it, {{median_cycle_without_budget_owner_step}} without.
+- **Director approval:** {{median_cycle_with_director_step}} days with it, {{median_cycle_without_director_step}} without.
+- **A rejection:** {{median_cycle_with_rejected_any}} days with one, {{median_cycle_without_rejected_any}} without.
+
+These are descriptive differences, not causal effects.
+
+Rejections by role: {{org_rejection_events}} organisational rejection events in total, of which {{top_rejecting_role}} raised {{top_rejecting_role_share}} (`outputs/kpis/rejections_by_role.csv`).
+
+## 5. Process mining
+
+**Event log.** Claim and payment events per claim. Permit and trip events are used only by the compliance rules.
+
+**Variants.**
+
+| | DD | ID | RFP |
+|---|---|---|---|
+| Distinct variants | {{DD_variants}} | {{ID_variants}} | {{RFP_variants}} |
+| Share of claims in the top variant | {{DD_top1_variant_share}} | {{ID_top1_variant_share}} | {{RFP_top1_variant_share}} |
+| Share in the top five variants | {{DD_top5_variant_share}} | {{ID_top5_variant_share}} | {{RFP_top5_variant_share}} |
+| Variants needed to cover nine in ten claims | {{DD_variants_for_90pct}} | {{ID_variants_for_90pct}} | {{RFP_variants_for_90pct}} |
+| Variants seen only once | {{DD_singleton_variants}} | {{ID_singleton_variants}} | {{RFP_singleton_variants}} |
+
+Top domestic variant: `{{DD_top1_variant}}`.
+
+**Discovery.** I ran the inductive miner with a noise threshold on each log and measured it by token replay:
+
+| | DD | ID | RFP |
+|---|---|---|---|
+| Fitness | {{DD_discovered_fitness}} | {{ID_discovered_fitness}} | {{RFP_discovered_fitness}} |
+| Precision | {{DD_discovered_precision}} | {{ID_discovered_precision}} | {{RFP_discovered_precision}} |
+
+The models replay the log well, but precision is low: they allow behaviour that never occurs. I use them to visualise the flow (`outputs/figures/pm_discovered_*.png`), not as a normative model.
+
+**Bottlenecks.** Waiting time is measured on each hand-off between consecutive steps (`outputs/mining/transition_waits.csv`):
+- The largest single hand-off is {{top_wait_transition}} for {{top_wait_transition_log}}, at {{top_wait_transition_share}} of all waiting time.
+- {{wait_share_post_approval}} of all waiting time falls after final approval: final approval to Request Payment, plus Request Payment to Payment Handled.
+- Median Request Payment to Payment Handled is {{DD_median_request_to_paid_days}} days for DD, {{ID_median_request_to_paid_days}} for ID and {{RFP_median_request_to_paid_days}} for RFP.
+- {{payments_top2_days_share}} of {{payments_total}} payments land on {{payments_top_days}}, and {{payments_peak_hour_share}} at {{payments_peak_hour}} local time, which shows a batch payment run.
+
+**Conformance.** The reference model encodes the intended process from the dataset description: submission, then travel administration approval, then an optional budget-owner approval (skipped when budget owner and supervisor are the same person), then either a supervisor final approval or a supervisor approval followed by a director final approval, then Request Payment and Payment Handled (`outputs/figures/pm_reference_model.png`). Alignment-based conformance gives, per claim, whether it fits exactly and its alignment fitness:
+
+| | DD | ID | RFP | All |
+|---|---|---|---|---|
+| Claims fitting exactly | {{DD_conform_rate}} | {{ID_conform_rate}} | {{RFP_conform_rate}} | {{ALL_conform_rate}} |
+| Mean alignment fitness | {{DD_mean_alignment_fitness}} | {{ID_mean_alignment_fitness}} | {{RFP_mean_alignment_fitness}} | |
+
+**Business compliance rules** explain the deviations in plain terms (`outputs/mining/compliance_rules.csv`):
+
+| Rule | DD | ID | RFP |
+|---|---|---|---|
+| R1 paid without a final approval | {{DD_r1}} | {{ID_r1}} | {{RFP_r1}} |
+| R2 paid with no administration or pre-approver check | {{DD_r2}} ({{DD_r2_rate}}) | {{ID_r2}} ({{ID_r2_rate}}) | {{RFP_r2}} ({{RFP_r2_rate}}) |
+| R2b paid with pre-approver instead of administration | {{DD_r2b}} ({{DD_r2b_rate}}) | {{ID_r2b}} ({{ID_r2b_rate}}) | {{RFP_r2b}} ({{RFP_r2b_rate}}) |
+| R3 administration check after final approval | {{DD_r3}} | {{ID_r3}} | {{RFP_r3}} |
+| R4 payment requested before final approval | {{DD_r4}} | {{ID_r4}} | {{RFP_r4}} |
+| R5 no approved travel permit before submission | not applicable | {{ID_r5}} ({{ID_r5_rate}}) | not applicable |
+| R6 permit approved after the trip started | not applicable | {{ID_r6}} ({{ID_r6_rate}}) | not applicable |
+| R7 declared more than {{declare_window_days}} days after the trip | not applicable | {{ID_r7}} ({{ID_r7_rate}}) | not applicable |
+| R8 resubmitted at least once | {{DD_r8}} ({{DD_r8_rate}}) | {{ID_r8}} ({{ID_r8_rate}}) | {{RFP_r8}} ({{RFP_r8_rate}}) |
+
+R5 counts international claims whose permit has no final approval anywhere in the trace. The R2 rule shows that the published "administration first" description is not universal: many claims go straight to a supervisor. A process owner should confirm whether that path is policy or a gap.
+
+## 6. Early-warning model
+
+**Question.** At the moment a claim is first submitted, how likely is it to become a problem claim?
+
+**Features.** {{model_n_features}} features, each known at first submission: {{model_feature_list}}. Org-unit and budget history are point-in-time:
+- They use only claims that were already closed before this claim's submission.
+- They look back over a rolling {{history_window_days}}-day window.
+- They are shrunk toward the training base rate with a pseudo-count of {{history_smoothing}}.
+
+Permit features use only permit events dated before submission.
+
+**Split.** Temporal, by first submission:
+
+| Set | Period | Claims | Problem rate |
+|---|---|---|---|
+| Train | before {{model_valid_start}} | {{model_n_train}} | {{model_pos_rate_train}} |
+| Validation | {{model_valid_start}} to {{model_test_start}} | {{model_n_valid}} | {{model_pos_rate_valid}} |
+| Test (unseen) | from {{model_test_start}} | {{model_n_test}} | {{model_pos_rate_test}} |
+
+**Model selection.**
+- LightGBM over a fixed grid of {{model_grid_size}} configurations, selected on validation ROC AUC ({{model_valid_auc}}).
+- Selected configuration: {{model_best_num_leaves}} leaves, minimum {{model_best_min_child}} claims per leaf, {{model_best_trees}} trees.
+- Isotonic calibration fitted on validation.
+- Training is deterministic: fixed seeds, single thread, and a fully ordered feature query.
+
+**Test results** (`outputs/model/model_metrics.json`):
+
+| Metric | Value |
+|---|---|
+| ROC AUC ({{model_ci_level}} bootstrap CI, {{model_bootstrap_resamples}} resamples) | {{model_test_auc}} ({{model_test_auc_ci_low}} to {{model_test_auc_ci_high}}) |
+| Baseline: log type only | {{model_test_auc_log_type_only}} |
+| Baseline: logistic regression, same features | {{model_test_auc_logistic}} |
+| PR AUC (base rate {{model_pos_rate_test}}) | {{model_test_pr_auc}} |
+| Brier score, calibrated model / constant base rate | {{model_test_brier_calibrated}} / {{model_test_brier_base_rate}} |
+| Problem rate in the riskiest tenth / lift | {{model_test_top_decile_rate}} / {{model_test_top_decile_lift}} |
+| ROC AUC by log: DD / ID / RFP | {{model_test_auc_DD}} / {{model_test_auc_ID}} / {{model_test_auc_RFP}} |
+| Same score against: rejection / not paid / SLA breach among paid | {{model_test_auc_vs_rejected}} / {{model_test_auc_vs_unpaid}} / {{model_test_auc_vs_sla_paid}} |
+
+**Explanation.** SHAP values from a tree explainer on the test set (`outputs/model/shap_importance.csv`). The top drivers are: {{shap_top1}}; {{shap_top2}}; {{shap_top3}}. Each scored claim carries its top positive drivers in `outputs/model/rag_monitor_claims.csv`.
+
+**RAG view.** The cut-offs are fixed on the validation period: RED is the riskiest {{rag_red_top_pct}} and AMBER the next {{rag_amber_band_pct}}, using raw score cut-offs of {{rag_red_cut}} and {{rag_amber_cut}}. On the test period:
+
+| Band | Claims | Share | Observed problem rate | Share of all problems |
+|---|---|---|---|---|
+| RED | {{rag_RED_claims}} | {{rag_RED_share}} | {{rag_RED_problem_rate}} | {{rag_RED_capture}} |
+| AMBER | {{rag_AMBER_claims}} | {{rag_AMBER_share}} | {{rag_AMBER_problem_rate}} | {{rag_AMBER_capture}} |
+| GREEN | {{rag_GREEN_claims}} | {{rag_GREEN_share}} | {{rag_GREEN_problem_rate}} | {{rag_GREEN_capture}} |
+
+**Honest assessment.** The model is a moderate triage signal. It clearly beats the naive baseline, and RED claims are far more likely to go wrong than GREEN ones. But the problem rate rises from {{model_pos_rate_train}} in training to {{model_pos_rate_test}} in test, so:
+- calibrated probabilities under-predict in test (`outputs/model/calibration_test.csv`);
+- band shares drift from their design targets.
+
+It should prioritise review effort, never auto-reject. It would need recalibration on recent data before live use.
+
+**Development disclosure.** The test period was looked at more than once while building the model, and the changes made were:
+1. An early version used *cumulative* org-unit history counts. These grow mechanically over time, so test claims sat outside the training range, and the test calibration table exposed it. I replaced them with a rolling window.
+2. Early stopping chose very few trees, and the coarse scores created ties at the RAG cut-offs. I replaced it with the fixed grid above and set cut-offs on the raw score.
+3. Training was made deterministic.
+
+The protocol was then locked, run once, and the result reported as is. Because the test set influenced these design choices, the test metrics are slightly optimistic.
+
+## 7. Reproducibility
+
+`PYTHONPATH=src python -m claimpulse.pipeline` rebuilds everything from the three raw files, and `pytest` checks:
+- data contracts on the gold layer;
+- independent recomputation of headline KPIs from the published CSVs;
+- that every document matches a fresh render from the audit record;
+- that template text contains no free-standing numbers;
+- a mutation check that a changed audit value is detected;
+- the absence of em and en dashes;
+- that no raw data is in the repository.

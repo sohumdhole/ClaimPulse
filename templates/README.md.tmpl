@@ -1,0 +1,88 @@
+# ClaimPulse: process mining and early-warning analytics for reimbursement claims
+
+ClaimPulse analyses **{{ALL_claims}} real reimbursement claims** from the BPI Challenge 2020 event logs (Eindhoven University of Technology travel and expense declarations, {{first_submit_month}} to {{last_submit_month}}). The process is the same one that runs every claims operation: submit, review, approve, pay. The project builds:
+
+- a governed DuckDB warehouse with bronze, silver and gold layers, data-quality rules with quarantine, and a provenance manifest
+- operational KPIs and SLA tracking
+- process mining with Celonis-style analysis in PM4Py: discovery, variants, bottlenecks and conformance
+- an explainable early-warning model with a RED / AMBER / GREEN monitoring view
+- a formula-driven Excel KPI pack
+- a Power BI star schema with DAX measures
+
+**Every number in this README is rendered from `outputs/audit/audit.json`**, which the pipeline writes as it runs. A test fails if any number here does not trace back to that record.
+
+> Honest scope: these are university expense claims, not insurance or healthcare claims. The operational logic transfers: intake, multi-level review, rework loops, payment runs and SLA management. The domain does not. See [Limitations](#limitations).
+
+## Headline findings
+
+**1. Payment, not approval, drives cycle time.** The median claim reaches final approval in {{ALL_median_approval_days}} days, then waits {{ALL_median_payment_days}} more days to be paid. {{wait_share_post_approval}} of all waiting time between steps occurs *after* final approval. The cause is visible in the timestamps: {{payments_top2_days_share}} of {{payments_total}} payments are handled on {{payments_top_days}}, and {{payments_peak_hour_share}} at {{payments_peak_hour}}. That is a twice-weekly batch payment run, so a claim approved just after a run waits for the next one.
+
+![Bottlenecks](outputs/figures/pm_bottlenecks.png)
+
+**2. Rework is concentrated in one review step and slows claims down.** {{ALL_org_rejection_rate}} of claims are rejected at least once by a reviewer, and {{ALL_resubmission_rate}} are resubmitted. Administration accounts for {{top_rejecting_role_share}} of all rejections. Paid claims that were rejected along the way have a median cycle of {{median_cycle_with_rejected_any}} days, against {{median_cycle_without_rejected_any}} days for claims never rejected. Zero-amount claims are a clear quality signal: {{zero_amount_claims}} claims carry a zero amount, and {{zero_amount_problem_rate}} of them become problem claims ({{zero_amount_unpaid_rate}} are never paid).
+
+**3. SLA performance varies widely by unit.** Against an analytical {{sla_days}}-day SLA from submission to payment, {{ALL_sla_breach_rate}} of paid claims breach. The rate is {{DD_sla_breach_rate}} for domestic, {{ID_sla_breach_rate}} for international and {{RFP_sla_breach_rate}} for requests for payment. Across the {{org_units_ge50}} unit and log combinations with at least {{org_min_claims}} claims, the breach rate runs from {{org_unit_sla_min}} to {{org_unit_sla_max}}. The worst month was {{worst_sla_month}} for {{worst_sla_month_log}}, at {{worst_sla_month_rate}}.
+
+**4. The documented approval path is not the norm everywhere.** {{ALL_conform_rate}} of claims follow the intended approval process exactly; for international declarations the figure is {{ID_conform_rate}}. Two compliance gaps stand out:
+- {{ID_r6_rate}} of international claims had the travel permit approved only *after* the trip started.
+- {{ID_r7_rate}} were declared more than {{declare_window_days}} days after the trip ended.
+
+On the review side, {{DD_r2_rate}} of paid domestic claims show no recorded administration or pre-approver check.
+
+**5. Early warning is useful for triage, not for decisions.** A LightGBM model scores each claim at first submission. On an unseen later period it reaches ROC AUC **{{model_test_auc}}** ({{model_ci_level}} bootstrap CI {{model_test_auc_ci_low}} to {{model_test_auc_ci_high}}). For comparison, a log-type-only baseline scores {{model_test_auc_log_type_only}} and logistic regression scores {{model_test_auc_logistic}}. In the monitoring view:
+- RED claims ({{rag_RED_share}} of volume) turn into problem claims {{rag_RED_problem_rate}} of the time.
+- GREEN claims do so {{rag_GREEN_problem_rate}} of the time.
+- RED and AMBER together capture {{rag_red_amber_capture}} of all problems.
+
+The model's main drivers, by SHAP, are: {{shap_top1}}; {{shap_top2}}; {{shap_top3}}.
+
+![RAG bands](outputs/figures/model_rag_bands.png)
+
+## What is in the repo
+
+| Step | What it does | Main outputs |
+|---|---|---|
+| 1 Data layer | Streams the three XES logs into DuckDB bronze (lossless), silver (typed, rule-checked) and gold (one row per claim plus hand-offs). Verifies MD5 against the 4TU landing pages and case and event counts against the published figures. | `outputs/audit/manifest.json`, `outputs/kpis/dq_rule_results.csv` |
+| 2 KPIs | Volume, paid rate, rejection, resubmission, first time right, cycle time, SLA breach, by log, month, year, reviewing role, org unit and budget | `outputs/kpis/*.csv`, `outputs/figures/kpi_*.png` |
+| 3 Process mining | Variants, inductive-miner discovery, waiting time per hand-off, payment batch profile, alignment conformance against the intended process, business compliance rules | `outputs/mining/*`, `outputs/figures/pm_*.png` |
+| 4 Early warning | Point-in-time features, temporal train / validation / test split, LightGBM with baselines, isotonic calibration, SHAP, RAG bands | `outputs/model/*`, `outputs/figures/model_*.png` |
+| 5 Excel and Power BI | Formula-driven KPI pack (dropdown, editable SLA, RAG formatting, charts); star schema CSVs with DAX measures | `outputs/excel/ClaimPulse_KPI_Pack.xlsx`, `outputs/powerbi/`, `docs/powerbi_build_guide.md` |
+| 6 Docs | README, methodology, reporting requirements and Power BI guide, all rendered from the audit record | `templates/`, `docs/` |
+| 7 Tests | Data contracts, metric recomputation, doc traceability with a mutation check, no-dash and no-raw-data guards | `tests/` |
+
+Data quality summary:
+- Bronze holds {{dq_bronze_cases}} cases and {{dq_bronze_events}} events.
+- {{dq_quarantined_cases}} cases were quarantined because they have no employee submission, and {{dq_quarantined_events}} duplicate events were removed.
+- Gold holds {{gold_claims}} claims.
+- All three source files match their published MD5 and published counts.
+
+## Run it
+
+```bash
+pip install -r requirements.txt
+# put the three .xes.gz files in data/raw/ (see data/README.md)
+PYTHONPATH=src python -m claimpulse.pipeline
+PYTHONPATH=src pytest -q
+```
+
+The full pipeline is deterministic and rebuilds every output and document from the raw logs.
+
+## Data and licence
+
+Source: van Dongen, B. (2020), *BPI Challenge 2020*, 4TU.ResearchData, [doi:10.4121/uuid:52fb97d4-4588-43c9-9d04-3604d4613b51](https://doi.org/10.4121/uuid:52fb97d4-4588-43c9-9d04-3604d4613b51). Logs used:
+- Domestic Declarations ({{src_DD_cases}} cases)
+- International Declarations ({{src_ID_cases}} cases)
+- Request For Payment ({{src_RFP_cases}} cases)
+
+The data is licensed **CC BY-NC 4.0** (attribution, non-commercial). Raw logs are not redistributed here. Derived outputs are shared under the same terms. Code is MIT licensed.
+
+## Limitations
+
+- **Domain.** University travel and expense claims, not insurance or healthcare claims. Amounts are as published and are not interpreted as euros.
+- **No real SLA.** The {{sla_days}}-day SLA is an analytical choice: {{sla_dd_within_share}} of paid domestic claims finish within it. Sensitivity results at {{sla_sensitivity_list}} days are in `outputs/kpis/sla_sensitivity.csv`.
+- **Anonymised resources.** Every person appears as `STAFF MEMBER`, so the analysis works at role level and cannot measure individual workload.
+- **Scope change.** 2017 covers two departments and 2018 the whole university. Volume trends across that boundary reflect scope, not demand.
+- **No org unit for domestic claims.** Domestic declarations carry only a budget number, so the org-unit scorecard covers international declarations and requests for payment.
+- **Model drift.** The problem rate rises from {{model_pos_rate_train}} in training to {{model_pos_rate_test}} in the test period, so calibrated probabilities under-predict in test. The RAG bands rank correctly but should be recalibrated before any live use.
+
+Full detail: [docs/methodology.md](docs/methodology.md) and [docs/reporting_requirements.md](docs/reporting_requirements.md).

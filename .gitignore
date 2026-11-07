@@ -1,0 +1,11 @@
+# raw data is never committed (CC BY-NC 4.0, download from 4TU)
+data/raw/*
+!data/raw/.gitkeep
+# rebuildable warehouse and event-level export
+warehouse/
+outputs/powerbi/fact_transition.csv
+__pycache__/
+.pytest_cache/
+*.pyc
+.ipynb_checkpoints/
+~$*.xlsx

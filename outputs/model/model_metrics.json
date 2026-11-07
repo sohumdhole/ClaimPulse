@@ -1,0 +1,33 @@
+{
+  "test_auc": 0.6940040238671688,
+  "test_auc_ci_low": 0.6831703363986212,
+  "test_auc_ci_high": 0.7038128473223699,
+  "test_pr_auc": 0.6338741402277968,
+  "test_brier_calibrated": 0.22193204965770125,
+  "test_brier_base_rate": 0.2589928699833109,
+  "test_auc_logistic": 0.6411897878008884,
+  "test_auc_log_type_only": 0.5943757351638264,
+  "test_auc_vs_rejected": 0.6707332440817715,
+  "test_auc_vs_unpaid": 0.7510771385225814,
+  "test_auc_vs_sla_paid": 0.6776909076628488,
+  "test_auc_DD": 0.7074164848423794,
+  "test_auc_ID": 0.627609604601377,
+  "test_auc_RFP": 0.6285959120003988,
+  "test_top_decile_rate": 0.774896265560166,
+  "test_top_decile_lift": 1.8989389298085593,
+  "params": {
+    "num_leaves": 7,
+    "min_child_samples": 20,
+    "n_estimators": 100,
+    "learning_rate": 0.03,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "verbose": -1,
+    "deterministic": true,
+    "force_row_wise": true,
+    "n_jobs": 1
+  }
+}
